@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  description: A simple API
+  version: 1.0.0
+paths:
+  /hello:
+    get:
+      summary: A simple hello world endpoint
+      operationId: app.hello
+      responses:
+        200:
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Hello, World!"
+  /add:
+    post:
+      summary: Add two numbers
+      operationId: app.add
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - a
+                - b
+              properties:
+                a:
+                  type: integer
+                b:
+                  type: integer
+      responses:
+        200:
+          description: A successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: integer
+                    example: 3
